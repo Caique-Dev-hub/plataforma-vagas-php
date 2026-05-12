@@ -1,0 +1,1992 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Roboto:wght@300;400;500&display=swap');
+
+/* =====================================================================
+   PALETA (NÃO ALTERADA)
+===================================================================== */
+:root {
+    --p1: #0A2A31;
+    --p2: #1F3640;
+    --p3: #344B57;
+    --p4: #506574;
+    --p5: #6D8796;
+    --p6: #8DA8B7;
+    --p7: #C4D9E5;
+
+    --white: #ffffff;
+    --black: #000;
+
+    /* layout / UI (sem mexer na paleta) */
+    --container: 1440px;
+    --gutter: 32px;
+
+    --radius-12: 12px;
+    --radius-16: 16px;
+    --radius-18: 18px;
+
+    --shadow-sm: 0 10px 24px rgba(0, 0, 0, .08);
+    --shadow-md: 0 18px 40px rgba(0, 0, 0, .12);
+    --shadow-lg: 0 30px 70px rgba(0, 0, 0, .18);
+
+    --btn-h: 46px;
+}
+
+/* =====================================================================
+   BASE
+===================================================================== */
+body {
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--p2);
+    background: #fff;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+.cadastro-title,
+.titulo {
+    font-family: "Montserrat", sans-serif !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+.emp-container {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+}
+
+/* =====================================================================
+   HEADER (mais alinhado + premium)
+===================================================================== */
+.empresaDemo-header {
+    height: 74px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    transition: box-shadow .25s ease, transform .25s ease;
+}
+
+.empresaDemo-header.header-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    animation: headerSlide .22s ease;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, .10);
+}
+
+@keyframes headerSlide {
+    from {
+        transform: translateY(-100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+.empresaDemo-header-container {
+    max-width: var(--container);
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 0 var(--gutter);
+}
+
+.empresaDemo-logo img {
+    height: 56px;
+    width: auto;
+    display: block;
+}
+
+/* SEARCH (bonito + foco) */
+.empresaDemo-search-box {
+    flex: 1;
+    max-width: 820px;
+    height: var(--btn-h);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 14px;
+
+    border: 1.8px solid #bccad1;
+    border-radius: 999px;
+    background: #fff;
+    transition: box-shadow .18s ease, border-color .18s ease, transform .18s ease;
+}
+
+.empresaDemo-search-box:focus-within {
+    border-color: var(--p6);
+    box-shadow: 0 0 0 4px rgba(141, 168, 183, .25);
+    transform: translateY(-1px);
+}
+
+.search-ico {
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    opacity: .75;
+    background:
+        radial-gradient(circle at 65% 35%, transparent 7px, var(--p4) 7px, var(--p4) 8px, transparent 8px),
+        linear-gradient(var(--p4), var(--p4));
+    background-size: 18px 18px, 8px 2px;
+    background-position: 0 0, 13px 15px;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    transform: rotate(45deg);
+}
+
+.empresaDemo-search-box input {
+    border: none;
+    outline: none;
+    width: 100%;
+    height: calc(var(--btn-h) - 10px);
+    font-size: 14px;
+    color: var(--p2);
+}
+
+.empresaDemo-search-box input::placeholder {
+    color: var(--p5);
+}
+
+/* MENU DIREITO */
+.empresaDemo-right-menu {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-left: auto;
+}
+
+.empresaDemo-right-menu.empresa a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--btn-h);
+    padding: 0 16px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--p2);
+    white-space: nowrap;
+    transition: transform .16s ease, box-shadow .16s ease, background .16s ease, border-color .16s ease;
+}
+
+.link-menu,
+.link-ajuda {
+    background: transparent;
+    border: 1px solid transparent;
+}
+
+.link-menu:hover,
+.link-ajuda:hover {
+    background: rgba(196, 217, 229, .28);
+    border-color: rgba(196, 217, 229, .55);
+    transform: translateY(-1px);
+}
+
+.link-ajuda {
+    color: var(--p4) !important;
+}
+
+/* BOTÕES header (melhor shape + hover) */
+.btn-entrar,
+.btn-candidato {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+.btn-entrar {
+    border: 1.8px solid var(--p5);
+    background: transparent;
+}
+
+.btn-entrar:hover {
+    background: rgba(196, 217, 229, .35);
+    border-color: var(--p6);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-candidato {
+    background: linear-gradient(135deg, var(--p6), var(--p5));
+    color: var(--p1) !important;
+    border: none;
+    box-shadow: 0 10px 22px rgba(141, 168, 183, .40);
+}
+
+.btn-candidato:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 16px 36px rgba(141, 168, 183, .55);
+}
+
+/* HAMBURGER (sem duplicação) */
+.menu-hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 38px;
+    height: 32px;
+    padding: 0;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menu-hamburger span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: var(--p2);
+    border-radius: 3px;
+}
+
+/* =====================================================================
+   HERO (tipografia melhor + spacing)
+===================================================================== */
+.empresaDemo-hero {
+    position: relative;
+    width: 100%;
+    min-height: 760px;
+    background: url("../img/EmpresaDemo-116.jpg") center / cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.empresaDemo-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,
+            rgba(10, 42, 49, 0.88) 0%,
+            rgba(31, 54, 64, 0.78) 45%,
+            rgba(52, 75, 87, 0.62) 100%);
+}
+
+.empresaDemo-hero-container {
+    position: relative;
+    z-index: 2;
+    max-width: 980px;
+    padding: 0 24px;
+}
+
+.empresaDemo-hero-container h1 {
+    font-weight: 500;
+    font-size: 50px;
+    line-height: 1.18;
+    letter-spacing: -0.6px;
+    color: var(--white);
+    margin: 0 0 28px;
+}
+
+.empresaDemo-hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+}
+
+/* badges */
+.hero-badges {
+    margin-top: 22px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.hero-badges span {
+    font-size: 12px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, .92);
+    background: rgba(255, 255, 255, .10);
+    border: 1px solid rgba(255, 255, 255, .18);
+    padding: 8px 12px;
+    border-radius: 999px;
+    backdrop-filter: blur(6px);
+}
+
+/* =====================================================================
+   BOTÕES (HERO/CTA) - mais premium
+===================================================================== */
+.empresaDemo-hero-actions a,
+.empresaDemo-cta-actions a {
+    min-width: 270px;
+    height: 54px;
+    padding: 0 22px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.2px;
+
+    text-decoration: none;
+    white-space: nowrap;
+    transition: transform .16s ease, box-shadow .16s ease, background .16s ease, border-color .16s ease;
+}
+
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--p4), var(--p3));
+    color: var(--white);
+    border: none;
+    box-shadow: 0 16px 34px rgba(31, 54, 64, 0.35);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 22px 46px rgba(31, 54, 64, 0.45);
+}
+
+.btn-primary::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(255, 255, 255, .28), rgba(255, 255, 255, 0));
+    opacity: 0;
+    transition: .25s;
+}
+
+.btn-primary:hover::after {
+    opacity: 1;
+}
+
+.btn-outline {
+    background: rgba(255, 255, 255, .10);
+    color: var(--white);
+    border: 1.6px solid rgba(255, 255, 255, .55);
+    backdrop-filter: blur(8px);
+}
+
+.btn-outline:hover {
+    background: rgba(255, 255, 255, .18);
+    border-color: rgba(255, 255, 255, .9);
+    transform: translateY(-2px);
+}
+
+/* =====================================================================
+   METRICS (virou CARDS flutuantes)
+===================================================================== */
+.empresaDemo-metrics {
+    max-width: var(--container);
+    margin: -68px auto 0;
+    padding: 0 var(--gutter);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    color: var(--white);
+    position: relative;
+    z-index: 5;
+}
+
+.metric-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 28px 26px;
+    border-radius: var(--radius-18);
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(255, 255, 255, .08);
+}
+
+.metric-item.dark {
+    background: var(--p2);
+}
+
+.metric-item.mid {
+    background: var(--p1);
+}
+
+.metric-icon {
+    width: 44px;
+    height: 44px;
+    opacity: .95;
+    flex: 0 0 auto;
+}
+
+.metric-item strong {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.metric-item p {
+    font-size: 14px;
+    line-height: 1.45;
+    color: rgba(196, 217, 229, .92);
+    margin: 0;
+}
+
+.metric-item p span {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: var(--white);
+}
+
+/* =====================================================================
+   FEATURES (cards + grid alinhado)
+===================================================================== */
+.empresaDemo-features {
+    max-width: var(--container);
+    margin: 110px auto 0;
+    padding: 0 var(--gutter) 30px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.feature-item {
+    border: 1px solid rgba(196, 217, 229, .55);
+    background: rgba(196, 217, 229, .18);
+    border-radius: var(--radius-16);
+    padding: 24px 22px;
+    transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-3px);
+    background: rgba(196, 217, 229, .26);
+    box-shadow: var(--shadow-sm);
+}
+
+.feature-icon {
+    width: 44px;
+    height: 44px;
+    color: var(--p2);
+    margin-bottom: 12px;
+}
+
+.feature-item h4 {
+    font-weight: 800;
+    font-size: 16px;
+    color: var(--p2);
+    margin: 0 0 8px;
+}
+
+.feature-item p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--p4);
+    margin: 0;
+}
+
+/* =====================================================================
+   PROFILES (mantive, só refinei espaçamento/hover)
+===================================================================== */
+.empresaDemo-profiles-v2 {
+    position: relative;
+    width: 100%;
+    min-height: 75vh;
+
+    background-image: url("../img/empresa.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    color: var(--white);
+    margin-top: 70px;
+}
+
+.empresaDemo-profiles-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg,
+            rgba(10, 42, 49, 0.92) 0%,
+            rgba(10, 42, 49, 0.78) 45%,
+            rgba(10, 42, 49, 0.55) 100%);
+}
+
+.empresaDemo-profiles-wrap {
+    position: relative;
+    z-index: 2;
+    max-width: var(--container);
+    margin: auto;
+    padding: 110px var(--gutter);
+}
+
+.empresaDemo-profiles-header {
+    max-width: 720px;
+    margin-bottom: 60px;
+}
+
+.empresaDemo-profiles-header h2 {
+    font-size: 44px;
+    font-weight: 600;
+    line-height: 1.18;
+    letter-spacing: -0.4px;
+    margin: 0 0 16px;
+}
+
+.empresaDemo-profiles-header p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba(196, 217, 229, .95);
+    margin: 0;
+}
+
+.empresaDemo-profiles-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.profile-box {
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: var(--radius-16);
+    padding: 32px 26px;
+    color: var(--p2);
+    border: 1px solid rgba(196, 217, 229, .55);
+    transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.profile-box:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+}
+
+.profile-box .icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 14px;
+    background: var(--p7);
+    color: var(--p2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.profile-box svg {
+    width: 26px;
+    height: 26px;
+}
+
+.profile-box h4 {
+    font-size: 17px;
+    font-weight: 800;
+    margin: 0 0 8px;
+}
+
+.profile-box p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--p4);
+    margin: 0;
+}
+
+/* =====================================================================
+   CTA (melhor tipografia)
+===================================================================== */
+.empresaDemo-cta {
+    max-width: var(--container);
+    margin: 85px auto;
+    padding: 0 var(--gutter);
+    text-align: center;
+}
+
+.empresaDemo-cta h2 {
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--p2);
+    margin: 0 0 28px;
+}
+
+.empresaDemo-cta-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.empresaDemo-cta-actions a {
+    height: 56px;
+    min-width: 340px;
+}
+
+.empresaDemo-cta-actions .btn-primary {
+    background: linear-gradient(135deg, var(--p6), var(--p5));
+    color: var(--p1);
+    box-shadow: 0 14px 34px rgba(141, 168, 183, 0.40);
+}
+
+.empresaDemo-cta-actions .btn-primary:hover {
+    background: var(--p7);
+    transform: translateY(-2px);
+    box-shadow: 0 18px 44px rgba(196, 217, 229, 0.55);
+}
+
+.empresaDemo-cta-actions .btn-outline {
+    background: transparent;
+    border: 2px solid var(--p6);
+    color: var(--p2);
+}
+
+.empresaDemo-cta-actions .btn-outline:hover {
+    background: rgba(141, 168, 183, 0.18);
+    border-color: var(--p7);
+    transform: translateY(-2px);
+}
+
+/* =====================================================================
+   FOOTER
+===================================================================== */
+.empresaDemo-footer {
+    background: var(--p1);
+    color: var(--white);
+    padding: 60px 40px 30px;
+    margin-top: 40px;
+}
+
+.footer-container {
+    max-width: var(--container);
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 52px;
+}
+
+.footer-logo {
+    width: 160px;
+    margin-bottom: 15px;
+}
+
+.footer-desc {
+    font-size: 14px;
+    line-height: 1.6;
+    opacity: .88;
+    max-width: 280px;
+}
+
+.footer-col h4 {
+    font-size: 16px;
+    font-weight: 800;
+    margin-bottom: 14px;
+}
+
+.footer-col a {
+    display: block;
+    color: var(--white);
+    font-size: 14px;
+    opacity: .78;
+    margin: 8px 0;
+    transition: .20s ease;
+}
+
+.footer-col a:hover {
+    opacity: 1;
+    transform: translateX(3px);
+}
+
+.footer-social {
+    display: flex;
+}
+
+.footer-social a {
+    font-size: 22px;
+    margin-right: 12px;
+    opacity: .85;
+    transition: .20s ease;
+}
+
+.footer-social a:hover {
+    opacity: 1;
+}
+
+.footer-bottom {
+    margin-top: 50px;
+    border-top: 1px solid rgba(255, 255, 255, .15);
+    padding-top: 18px;
+    text-align: center;
+    font-size: 13px;
+    opacity: .78;
+}
+
+/* =====================================================================
+   DROPDOWN MENU (desktop)
+===================================================================== */
+.empresaDemo-right-menu {
+    position: relative;
+}
+
+.empresa-dropdown {
+    position: absolute;
+    top: 56px;
+    left: 0;
+    min-width: 230px;
+
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(196, 217, 229, .6);
+
+    padding: 10px 0;
+    z-index: 9999;
+
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition: .18s ease;
+}
+
+.empresa-dropdown.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.empresa-dropdown a {
+    display: block;
+    padding: 12px 16px;
+    font-size: 14px;
+    color: var(--p2);
+    text-decoration: none;
+}
+
+.empresa-dropdown a:hover {
+    background: linear-gradient(90deg, var(--p7), rgba(196, 217, 229, .35));
+}
+
+/* =====================================================================
+   MOBILE MENU
+===================================================================== */
+.mobile-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .55);
+    z-index: 9998;
+}
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 88%;
+    max-width: 380px;
+    height: 100%;
+    background: #fff;
+    z-index: 9999;
+    padding: 24px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    font-family: 'Montserrat', sans-serif;
+    box-shadow: -20px 0 50px rgba(0, 0, 0, .18);
+}
+
+.mobile-close {
+    align-self: flex-end;
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: var(--p2);
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+}
+
+.mobile-close:hover {
+    background: rgba(196, 217, 229, .35);
+}
+
+.mobile-menu a {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--p2);
+    padding: 12px 12px;
+    border-radius: 12px;
+    transition: .16s ease;
+}
+
+.mobile-menu a:hover {
+    background: rgba(196, 217, 229, .28);
+}
+
+.mobile-menu hr {
+    border: none;
+    border-top: 1px solid rgba(196, 217, 229, .65);
+    margin: 8px 0;
+}
+
+/* reaproveita botões do header */
+.mobile-menu .btn-entrar,
+.mobile-menu .btn-candidato {
+    height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* =====================================================================
+   RESPONSIVO
+===================================================================== */
+@media (max-width: 1200px) {
+    .empresaDemo-hero-container h1 {
+        font-size: 44px;
+    }
+
+    .empresaDemo-features {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .empresaDemo-profiles-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 1024px) {
+    .empresaDemo-search-box {
+        display: none;
+    }
+}
+
+@media (max-width: 900px) {
+    .empresaDemo-right-menu {
+        display: none;
+    }
+
+    .menu-hamburger {
+        display: flex;
+    }
+
+    .empresaDemo-header-container {
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 768px) {
+    .empresaDemo-hero {
+        min-height: auto;
+        padding: 120px 0 90px;
+    }
+
+    .empresaDemo-hero-container h1 {
+        font-size: 32px;
+        line-height: 1.25;
+    }
+
+    .empresaDemo-hero-actions a {
+        width: 100%;
+        min-width: unset;
+    }
+
+    .empresaDemo-metrics {
+        grid-template-columns: 1fr;
+        margin-top: -38px;
+    }
+
+    .empresaDemo-features {
+        grid-template-columns: 1fr;
+        margin-top: 70px;
+    }
+
+    .empresaDemo-profiles-wrap {
+        padding: 80px 24px;
+    }
+
+    .empresaDemo-profiles-header h2 {
+        font-size: 32px;
+    }
+
+    .empresaDemo-cta {
+        margin: 80px auto;
+    }
+
+    .empresaDemo-cta h2 {
+        font-size: 26px;
+    }
+
+    .empresaDemo-cta-actions a {
+        width: 100%;
+        min-width: unset;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        text-align: center;
+    }
+
+    .footer-social {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .empresaDemo-hero-container h1 {
+        font-size: 28px;
+    }
+}
+
+/* mobile parallax fallback */
+@media (max-width: 768px) {
+    .empresaDemo-profiles-v2 {
+        background-attachment: scroll;
+    }
+}
+
+/* ================= HEADER BASE ================= */
+.empresaDemo-header {
+    height: 74px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, .08);
+    border-bottom: 1px solid rgba(15, 23, 42, .06);
+    position: relative;
+    z-index: 9990;
+}
+
+.empresaDemo-header-container {
+    max-width: 1400px;
+    width: 100%;
+    padding: 0 24px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.empresaDemo-logo {
+    display: flex;
+    align-items: center;
+}
+
+.empresaDemo-logo img {
+    height: 74px;
+    display: block;
+}
+
+/* nav */
+.empresaDemo-menu-desktop {
+    margin-left: auto;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+/* link/botão do header */
+.empresaDemo-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 44px;
+    padding: 0 12px;
+    border-radius: 999px;
+    text-decoration: none;
+    color: var(--p1, #1F75D8);
+    font-weight: 800;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    transition: transform .12s ease, background .12s ease;
+}
+
+.empresaDemo-link:hover {
+    background: rgba(31, 117, 216, .10);
+    transform: translateY(-1px);
+}
+
+/* ================= SUBMENU DESKTOP ================= */
+.empresaDemo-submenu-wrapper {
+    position: relative;
+}
+
+.empresaDemo-submenu-btn {
+    height: 44px;
+    padding: 0 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(15, 23, 42, .10);
+    background: #fff;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background .12s ease, transform .12s ease;
+}
+
+.empresaDemo-submenu-btn:hover {
+    background: rgba(15, 23, 42, .04);
+    transform: translateY(-1px);
+}
+
+.empresaDemo-submenu {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 10px);
+    width: 220px;
+    background: #fff;
+    border: 1px solid rgba(15, 23, 42, .10);
+    border-radius: 14px;
+    box-shadow: 0 18px 60px rgba(15, 23, 42, .14);
+    padding: 8px;
+    z-index: 9999;
+}
+
+.empresaDemo-submenu a {
+    display: block;
+    padding: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: rgba(15, 23, 42, .90);
+    font-weight: 800;
+}
+
+.empresaDemo-submenu a:hover {
+    background: rgba(15, 23, 42, .06);
+}
+
+/* ================= AUTH POPOVER ================= */
+.empresaDemo-auth {
+    position: relative;
+}
+
+.empresaDemo-auth-popover {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 12px);
+    width: min(360px, 92vw);
+    background: rgba(255, 255, 255, .96);
+    border: 1px solid rgba(15, 23, 42, .10);
+    border-radius: 16px;
+    box-shadow: 0 18px 60px rgba(15, 23, 42, .14);
+    padding: 14px;
+    z-index: 9999;
+    backdrop-filter: blur(10px);
+}
+
+.empresaDemo-auth-popover::before {
+    content: "";
+    position: absolute;
+    top: -7px;
+    right: 18px;
+    width: 14px;
+    height: 14px;
+    background: rgba(255, 255, 255, .96);
+    border-left: 1px solid rgba(15, 23, 42, .10);
+    border-top: 1px solid rgba(15, 23, 42, .10);
+    transform: rotate(45deg);
+    border-top-left-radius: 4px;
+}
+
+/* tabs */
+.empresaDemo-auth-tabs {
+    display: flex;
+    gap: 8px;
+    padding: 6px;
+    border-radius: 999px;
+    background: rgba(15, 23, 42, .06);
+    border: 1px solid rgba(15, 23, 42, .08);
+    margin-bottom: 10px;
+}
+
+.empresaDemo-auth-tab {
+    flex: 1;
+    height: 38px;
+    border-radius: 999px;
+    border: 0;
+    background: transparent;
+    font-weight: 900;
+    color: rgba(15, 23, 42, .72);
+    cursor: pointer;
+    transition: background .14s ease, color .14s ease, box-shadow .14s ease;
+    position: relative;
+}
+
+.empresaDemo-auth-tab:hover {
+    background: rgba(255, 255, 255, .70);
+}
+
+/* deixa bem evidente qual lado está selecionado */
+.empresaDemo-auth-tab.is-active {
+    color: rgba(15, 23, 42, .92);
+    box-shadow: inset 0 0 0 1px rgba(15, 23, 42, .10);
+}
+
+.empresaDemo-auth[data-mode="CANDIDATO"] .empresaDemo-auth-tab.is-active {
+    background: linear-gradient(90deg, rgba(31, 117, 216, .18), rgba(31, 117, 216, .06));
+}
+
+.empresaDemo-auth[data-mode="RECRUTADOR"] .empresaDemo-auth-tab.is-active {
+    background: linear-gradient(90deg, rgba(169, 43, 157, .18), rgba(169, 43, 157, .06));
+}
+
+/* hint do modo atual (pra ficar MUITO claro) */
+.empresaDemo-auth-modehint {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(15, 23, 42, .10);
+    background: rgba(15, 23, 42, .04);
+    margin-bottom: 10px;
+    font-size: 12px;
+    font-weight: 900;
+    color: rgba(15, 23, 42, .82);
+}
+
+.empresaDemo-auth-modehint b {
+    font-weight: 950;
+}
+
+.empresaDemo-auth[data-mode="CANDIDATO"] .empresaDemo-auth-modehint {
+    border-color: rgba(31, 117, 216, .22);
+    background: rgba(31, 117, 216, .08);
+}
+
+.empresaDemo-auth[data-mode="RECRUTADOR"] .empresaDemo-auth-modehint {
+    border-color: rgba(169, 43, 157, .22);
+    background: rgba(169, 43, 157, .08);
+}
+
+.empresaDemo-auth-modehint .pill {
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(15, 23, 42, .10);
+    background: rgba(255, 255, 255, .70);
+    font-size: 11px;
+    font-weight: 950;
+    color: rgba(15, 23, 42, .78);
+    white-space: nowrap;
+}
+
+/* alert geral */
+.empresaDemo-auth-alert {
+    border-radius: 12px;
+    padding: 10px 12px;
+    font-weight: 800;
+    font-size: 12px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(15, 23, 42, .10);
+}
+
+.empresaDemo-auth-alert.is-error {
+    background: rgba(239, 68, 68, .10);
+    border-color: rgba(239, 68, 68, .25);
+    color: #b91c1c;
+}
+
+.empresaDemo-auth-alert.is-success {
+    background: rgba(34, 197, 94, .12);
+    border-color: rgba(34, 197, 94, .25);
+    color: #166534;
+}
+
+/* campos */
+.empresaDemo-auth-field {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.empresaDemo-auth-field span {
+    display: block;
+    font-size: 12px;
+    font-weight: 900;
+    opacity: .75;
+    margin-bottom: 6px;
+}
+
+.empresaDemo-auth-field input {
+    width: 100%;
+    height: 46px;
+    border-radius: 14px;
+    border: 1px solid rgba(15, 23, 42, .12);
+    background: #fff;
+    padding: 0 12px;
+    outline: none;
+    font-weight: 700;
+    color: rgba(15, 23, 42, .92);
+    transition: box-shadow .12s ease, border-color .12s ease;
+}
+
+.empresaDemo-auth-field input:focus {
+    border-color: rgba(31, 117, 216, .40);
+    box-shadow: 0 0 0 4px rgba(31, 117, 216, .12);
+}
+
+/* estados de validação */
+.empresaDemo-auth-field input.is-invalid {
+    border-color: rgba(239, 68, 68, .45);
+    box-shadow: 0 0 0 4px rgba(239, 68, 68, .10);
+}
+
+.empresaDemo-auth-field input.is-valid {
+    border-color: rgba(34, 197, 94, .35);
+}
+
+/* erro por campo */
+.empresaDemo-field-error {
+    min-height: 16px;
+    margin-top: 6px;
+    font-size: 12px;
+    font-weight: 800;
+    color: #ef4444;
+}
+
+/* botão submit */
+.empresaDemo-auth-submit {
+    width: 100%;
+    height: 46px;
+    border-radius: 999px;
+    font-weight: 900;
+    letter-spacing: .2px;
+    box-shadow: 0 12px 26px rgba(15, 23, 42, .10);
+}
+
+/* links */
+.empresaDemo-auth-links {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(15, 23, 42, .08);
+    font-size: 12px;
+}
+
+.empresaDemo-auth-links a {
+    color: rgba(15, 23, 42, .72);
+    text-decoration: none;
+    font-weight: 900;
+}
+
+.empresaDemo-auth-links a:hover {
+    color: var(--p1, #1F75D8);
+}
+
+/* ================= OLHO (toggle senha) ================= */
+.empresaDemo-pass {
+    position: relative;
+    display: block;
+}
+
+.empresaDemo-pass input {
+    padding-right: 56px;
+}
+
+.empresaDemo-pass-toggle {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+
+    display: grid;
+    place-items: center;
+
+    padding: 0;
+    margin: 0;
+
+    border-radius: 12px;
+    border: 1px solid rgba(15, 23, 42, .12);
+    background: rgba(15, 23, 42, .05);
+
+    cursor: pointer;
+    color: rgba(15, 23, 42, .75);
+
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+
+    transition: background .12s ease, transform .12s ease, box-shadow .12s ease;
+}
+
+.empresaDemo-pass-toggle i {
+    font-size: 16px;
+    line-height: 1;
+}
+
+.empresaDemo-pass-toggle:hover {
+    background: rgba(15, 23, 42, .10);
+    transform: translateY(-50%) scale(1.03);
+}
+
+.empresaDemo-pass-toggle:active {
+    transform: translateY(-50%) scale(.98);
+}
+
+.empresaDemo-pass-toggle:focus-visible {
+    box-shadow: 0 0 0 4px rgba(31, 117, 216, .14);
+    border-color: rgba(31, 117, 216, .35);
+}
+
+/* ================= VIEW LOGADO ================= */
+.empresaDemo-user-mini {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 10px;
+    border-radius: 14px;
+    background: rgba(15, 23, 42, .04);
+    border: 1px solid rgba(15, 23, 42, .08);
+    margin-bottom: 10px;
+}
+
+.empresaDemo-user-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+    background: linear-gradient(90deg, var(--p1, #1F75D8), var(--p3, #a92b9d));
+    box-shadow: 0 10px 20px rgba(15, 23, 42, .12);
+}
+
+.empresaDemo-user-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.empresaDemo-user-role {
+    font-size: 11px;
+    font-weight: 900;
+    padding: 4px 8px;
+    border-radius: 999px;
+    background: rgba(31, 117, 216, .12);
+    border: 1px solid rgba(15, 23, 42, .08);
+    color: rgba(15, 23, 42, .78);
+    text-transform: uppercase;
+}
+
+.empresaDemo-user-role.is-recrutador {
+    background: rgba(169, 43, 157, .12);
+}
+
+.empresaDemo-user-email {
+    font-size: 12px;
+    font-weight: 800;
+    opacity: .75;
+    margin-top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 220px;
+}
+
+.empresaDemo-user-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.empresaDemo-user-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    text-align: left;
+    padding: 11px 10px;
+    border-radius: 12px;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    text-decoration: none;
+    color: rgba(15, 23, 42, .92);
+    font-weight: 900;
+    transition: background .12s ease, transform .12s ease;
+}
+
+.empresaDemo-user-item:hover {
+    background: rgba(15, 23, 42, .06);
+    transform: translateY(-1px);
+}
+
+.empresaDemo-user-item.is-danger {
+    color: #ef4444;
+}
+
+/* ================= MOBILE ================= */
+.empresaDemo-mobile-menu-btn {
+    display: none;
+    margin-left: auto;
+    background: none;
+    border: none;
+    font-size: 26px;
+    cursor: pointer;
+    color: var(--p1, #1F75D8);
+    height: 44px;
+    width: 44px;
+    border-radius: 12px;
+}
+
+.empresaDemo-mobile-menu-btn:hover {
+    background: rgba(31, 117, 216, .10);
+}
+
+@media (max-width: 900px) {
+    .empresaDemo-menu-desktop {
+        display: none !important;
+    }
+
+    .empresaDemo-mobile-menu-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.mobile-menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(2, 6, 23, .55);
+    opacity: 0;
+    transition: opacity .25s ease;
+    z-index: 9998;
+}
+
+.mobile-menu-overlay.show {
+    opacity: 1;
+}
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: min(340px, 92vw);
+    height: 100vh;
+    background: #fff;
+    padding: 22px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: left .25s ease;
+    z-index: 9999;
+    box-shadow: 0 18px 60px rgba(15, 23, 42, .14);
+    border-right: 1px solid rgba(15, 23, 42, .08);
+}
+
+.mobile-menu.show {
+    left: 0;
+}
+
+.close-mobile {
+    align-self: flex-end;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: rgba(15, 23, 42, .06);
+    border: 1px solid rgba(15, 23, 42, .08);
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.mobile-menu a {
+    font-size: 16px;
+    font-weight: 900;
+    color: rgba(15, 23, 42, .88);
+    text-decoration: none;
+    padding: 12px 6px;
+    border-bottom: 1px solid rgba(15, 23, 42, .06);
+}
+
+.btn-entrar {
+    margin-top: 6px;
+    padding: 12px;
+    text-align: center;
+    border: 2px solid var(--p3, #a92b9d);
+    border-radius: 999px;
+    color: var(--p3, #a92b9d);
+    background: transparent;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.btn-candidato {
+    padding: 12px;
+    text-align: center;
+    background: linear-gradient(90deg, var(--p1, #1F75D8), var(--p3, #a92b9d));
+    color: #fff;
+    border-radius: 999px;
+    font-weight: 900;
+    text-decoration: none;
+}
+
+/* =========================================================
+   HEADER EmpresaDemo — BASE
+========================================================= */
+
+.empresaDemo-header {
+    width: 100%;
+    height: 72px;
+    background: var(--white);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+    display: flex;
+    align-items: center;
+    position: fixed;
+    z-index: 1000;
+}
+
+.empresaDemo-header-container {
+    max-width: 1440px;
+    width: 100%;
+    margin: auto;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.empresaDemo-logo {
+    display: flex;
+    align-items: center;
+}
+
+.empresaDemo-logo-img {
+    height: 64px;
+    width: auto;
+}
+
+/* =========================================================
+   MENU DESKTOP
+========================================================= */
+
+.empresaDemo-menu-desktop {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+/* LINKS SIMPLES */
+.empresaDemo-link {
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--p2);
+    text-decoration: none;
+    transition: color .2s ease;
+}
+
+.empresaDemo-link:hover {
+    color: var(--p3);
+}
+
+/* =========================================================
+   BOTÕES HEADER
+========================================================= */
+
+.empresaDemo-btn-blue,
+.empresaDemo-btn-pink {
+    height: 40px;
+    padding: 0 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 6px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all .25s ease;
+}
+
+/* Azul */
+.empresaDemo-btn-blue {
+    background: var(--p6);
+
+    color: var(--white);
+}
+
+.empresaDemo-btn-blue:hover {
+    background: color-mix(in srgb, var(--p3) 85%, black 15%);
+}
+
+/* Rosa claro */
+.empresaDemo-btn-pink {
+    background: var(--p7);
+    color: var(--p1);
+}
+
+.empresaDemo-btn-pink:hover {
+    background: color-mix(in srgb, var(--p7) 85%, black 15%);
+}
+
+/* =========================================================
+   SUBMENU DESKTOP
+========================================================= */
+
+.empresaDemo-submenu-wrapper {
+    position: relative;
+}
+
+.empresaDemo-submenu-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--p2);
+}
+
+/* ÍCONE DO MENU */
+.icon-menu::before {
+    content: "☰";
+    font-size: 18px;
+}
+
+/* DROPDOWN */
+.empresaDemo-submenu {
+    position: absolute;
+    top: 48px;
+    right: 0;
+    width: 220px;
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .18);
+    padding: 10px 0;
+    display: none;
+    z-index: 2000;
+}
+
+.empresaDemo-submenu a {
+    display: block;
+    padding: 12px 20px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--p2);
+    text-decoration: none;
+    transition: background .2s ease;
+}
+
+.empresaDemo-submenu a:hover {
+    background: var(--p7);
+}
+
+/* =========================================================
+   MENU MOBILE — BASE (NÃO VISÍVEL NO DESKTOP)
+========================================================= */
+
+.empresaDemo-mobile-btn {
+    display: none;
+    background: none;
+    border: none;
+    margin-left: auto;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* OVERLAY */
+.empresaDemo-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .65);
+    display: none;
+    z-index: 3000;
+}
+
+/* MENU MOBILE */
+.empresaDemo-mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -340px;
+    width: 320px;
+    height: 100vh;
+    background: var(--white);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: right .35s ease;
+    z-index: 3100;
+}
+
+.empresaDemo-mobile-menu.show {
+    right: 0;
+}
+
+.empresaDemo-overlay.show {
+    display: block;
+}
+
+/* HEADER MOBILE */
+.empresaDemo-mobile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: "Montserrat";
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* LINKS MOBILE */
+.empresaDemo-mobile-menu a {
+    font-family: "Montserrat";
+    font-size: 15px;
+    color: var(--p2);
+    text-decoration: none;
+    padding: 10px 0;
+}
+
+/* =========================================================
+   RESPONSIVO — HEADER
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .empresaDemo-menu-desktop {
+        display: none;
+    }
+
+    .empresaDemo-mobile-btn {
+        display: flex;
+        align-items: center;
+    }
+
+}
+
+/* =====================================================================
+   HOW IT WORKS (PADRÃO EmpresaDemo)
+===================================================================== */
+.empresaDemo-sec-head {
+    text-align: center;
+    margin-bottom: 34px;
+}
+
+.empresaDemo-sec-head h2 {
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--p2);
+    margin: 0 0 10px;
+}
+
+.empresaDemo-sec-head p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--p4);
+}
+
+.empresaDemo-how {
+    margin-top: 50px;
+    padding: 90px 0;
+    background: linear-gradient(180deg, rgba(196, 217, 229, .22), rgba(196, 217, 229, .08));
+    border-top: 1px solid rgba(196, 217, 229, .55);
+}
+
+.empresaDemo-how-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.empresaDemo-how-card {
+    border-radius: var(--radius-16);
+    background: rgba(255, 255, 255, .92);
+    border: 1px solid rgba(196, 217, 229, .65);
+    padding: 26px 22px;
+    box-shadow: var(--shadow-sm);
+    transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+}
+
+.empresaDemo-how-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    background: rgba(255, 255, 255, .98);
+}
+
+.empresaDemo-how-ico {
+    width: 54px;
+    height: 54px;
+    border-radius: 14px;
+    background: var(--p7);
+    color: var(--p2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+    border: 1px solid rgba(196, 217, 229, .65);
+}
+
+.empresaDemo-how-ico svg {
+    width: 26px;
+    height: 26px;
+}
+
+.empresaDemo-how-card h3 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+    color: var(--p2);
+    margin: 0 0 10px;
+}
+
+.empresaDemo-how-card p {
+    margin: 0 0 12px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--p4);
+}
+
+.empresaDemo-how-card ul {
+    margin: 0;
+    padding-left: 18px;
+    color: var(--p4);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.empresaDemo-how-card li {
+    margin: 6px 0;
+}
+
+.empresaDemo-how-actions {
+    margin-top: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.empresaDemo-how-mini {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--p4);
+    background: rgba(255, 255, 255, .70);
+    border: 1px solid rgba(196, 217, 229, .65);
+    padding: 10px 14px;
+    border-radius: 999px;
+}
+
+/* =====================================================================
+   FAQ V2 (PADRÃO EmpresaDemo)
+===================================================================== */
+.empresaDemo-faqv2 {
+    padding: 90px 0;
+    background: #fff;
+}
+
+.empresaDemo-faq-list {
+    max-width: 980px;
+    margin: 0 auto;
+    display: grid;
+    gap: 12px;
+}
+
+.empresaDemo-faq-item {
+    border-radius: var(--radius-16);
+    background: rgba(196, 217, 229, .16);
+    border: 1px solid rgba(196, 217, 229, .70);
+    overflow: hidden;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, .06);
+}
+
+.empresaDemo-faq-q {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+
+    padding: 16px 18px;
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+    text-align: left;
+
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    color: var(--p2);
+
+    transition: background .18s ease;
+}
+
+.empresaDemo-faq-q:hover {
+    background: rgba(196, 217, 229, .24);
+}
+
+.empresaDemo-faq-ico {
+    width: 36px;
+    height: 36px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+
+    background: rgba(255, 255, 255, .80);
+    border: 1px solid rgba(196, 217, 229, .80);
+    color: var(--p2);
+
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.empresaDemo-faq-a {
+    padding: 10px 18px 16px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--p4);
+}
+
+/* =====================================================================
+   RESPONSIVO (novas seções)
+===================================================================== */
+@media (max-width: 1200px) {
+    .empresaDemo-sec-head h2 {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 900px) {
+    .empresaDemo-how-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .empresaDemo-how,
+    .empresaDemo-faqv2 {
+        padding: 70px 0;
+    }
+
+    .empresaDemo-sec-head h2 {
+        font-size: 26px;
+    }
+
+    .empresaDemo-how-mini {
+        width: 100%;
+        text-align: center;
+        border-radius: 14px;
+    }
+}

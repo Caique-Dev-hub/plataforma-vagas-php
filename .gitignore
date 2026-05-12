@@ -1,0 +1,13 @@
+.env
+*.log
+*.zip
+.DS_Store
+Thumbs.db
+node_modules/
+vendor/
+.idea/
+.vscode/
+/public/uploads/*
+/public/assets/uploads/*
+/storage/*
+/tmp/*
