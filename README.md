@@ -1,4 +1,4 @@
-# Plataforma de Vagas PHP - Demo
+# Plataforma de Vagas PHP
 
 Projeto demonstrativo de uma plataforma de vagas desenvolvida com **PHP, MySQL, JavaScript, HTML e CSS**, com integração com **API REST**.
 
